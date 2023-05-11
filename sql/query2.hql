@@ -1,0 +1,1 @@
+USE projectdb; INSERT OVERWRITE LOCAL DIRECTORY 'output/q2'  ROW FORMAT DELIMITED  FIELDS TERMINATED BY ',' SELECT a.asset_name, AVG(t.vwap) AS avg_vwap FROM train AS t JOIN assets AS a ON t.asset_id = a.asset_id GROUP BY a.asset_name ORDER BY avg_vwap DESC;

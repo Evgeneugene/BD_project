@@ -1,0 +1,1 @@
+USE projectdb;  INSERT OVERWRITE LOCAL DIRECTORY 'output/q1' ROW FORMAT DELIMITED  FIELDS TERMINATED BY ',' SELECT a.asset_name, COUNT(*)  FROM train AS t  JOIN assets AS a ON t.asset_id = a.asset_id GROUP BY a.asset_name  ORDER BY a.asset_name;

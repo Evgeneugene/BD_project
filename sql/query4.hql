@@ -1,0 +1,1 @@
+USE projectdb; INSERT OVERWRITE LOCAL DIRECTORY 'output/q4'  ROW FORMAT DELIMITED  FIELDS TERMINATED BY ',' SELECT from_unixtime(train.`timestamp`), train.open, train.high, train.low, train.close FROM train JOIN assets ON train.Asset_ID = assets.asset_id WHERE assets.asset_name = 'Bitcoin' LIMIT 300;
